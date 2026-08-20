@@ -1,0 +1,431 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #0F766E;        /* Primary teal */
+  --color-primary-hover: #0B5F59;  /* Hover teal */
+  --color-primary-light: #E6F4F1;  /* Light teal */
+  --color-secondary: #2563EB;      /* Accent blue */
+  --color-secondary-light: #EAF4FB;/* Light blue */
+  --color-accent: #F59E0B;         /* Warm travel accent */
+  --color-surface: #F7F8F6;        /* Main page background */
+  --color-surface-light: #FFFFFF;  /* Primary cards */
+  --color-surface-lighter: #F1F5F3;/* Secondary/light sections */
+  --color-text: #172033;          /* Primary text */
+  --color-text-muted: #5B667A;    /* Secondary text */
+  --color-text-ultra-muted: #7A8495; /* Muted text */
+  --color-success: #16A34A;
+  --color-error: #DC2626;
+  --color-warning: #D97706;
+  --color-border: #DDE4E1;         /* Primary border */
+  --color-border-light: #E8EEEB;   /* Light border */
+  --color-header-bg: rgba(255, 255, 255, 0.85);
+  --color-sidebar-bg: rgba(255, 255, 255, 0.95);
+}
+
+.dark {
+  --color-primary: #14B8A6;
+  --color-primary-hover: #0D9488;
+  --color-primary-light: rgba(20, 184, 166, 0.15);
+  --color-secondary: #3B82F6;
+  --color-secondary-light: rgba(59, 130, 246, 0.15);
+  --color-accent: #F59E0B;
+  --color-surface: #0B132B;
+  --color-surface-light: #1C2541;
+  --color-surface-lighter: #1F2A4A;
+  --color-text: #FFFFFF;
+  --color-text-muted: #8E9AAF;
+  --color-text-ultra-muted: #6B7B93;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #D97706;
+  --color-border: #2A3656;
+  --color-border-light: #242F4B;
+  --color-header-bg: rgba(28, 37, 65, 0.85);
+  --color-sidebar-bg: rgba(28, 37, 65, 0.95);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-text);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Responsive sidebar and layout utility classes */
+@media (min-width: 768px) {
+  .desktop-sidebar {
+    display: block !important;
+  }
+  .mobile-menu-btn {
+    display: none !important;
+  }
+}
+
+/* Card zoom hover effect */
+div:hover > .destination-card-bg {
+  transform: scale(1.08) !important;
+}
+
+/* Uiverse Primary Button Styles */
+.button-uiverse {
+  all: unset;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 9999px;
+  font-family: inherit;
+  font-weight: 600;
+  color: #ffffff !important;
+  cursor: pointer;
+  overflow: hidden;
+  justify-content: center;
+  text-decoration: none;
+  border: none;
+  box-sizing: border-box;
+}
+
+.button-uiverse-bg {
+  overflow: hidden;
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--color-primary);
+  z-index: 0;
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.button-uiverse-layers {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: -60%;
+  aspect-ratio: 1 / 1;
+  width: 240%;
+  display: block;
+}
+
+.button-uiverse-layer {
+  border-radius: 9999px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(0);
+  display: block;
+}
+
+.button-uiverse-layer.-purple {
+  background-color: #0ea5e9; /* Sky Blue */
+}
+
+.button-uiverse-layer.-turquoise {
+  background-color: #2dd4bf; /* Turquoise */
+}
+
+.button-uiverse-layer.-yellow {
+  background-color: var(--color-primary); /* Primary Soft Teal */
+}
+
+.button-uiverse:hover .button-uiverse-layer {
+  transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.3s linear;
+}
+
+.button-uiverse:hover .button-uiverse-layer-1 {
+  transform: scale(1);
+}
+
+.button-uiverse:hover .button-uiverse-layer-2 {
+  transition-delay: 0.08s;
+  transform: scale(1);
+}
+
+.button-uiverse:hover .button-uiverse-layer-3 {
+  transition-delay: 0.16s;
+  transform: scale(1);
+}
+
+.button-uiverse-inner {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  pointer-events: none;
+  color: #ffffff !important;
+}
+
+/* Uiverse Circular Loader Styles */
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(90deg);
+    box-shadow:
+      0 10px 20px 0 rgba(255, 255, 255, 0.9) inset,
+      0 20px 30px 0 rgba(14, 165, 233, 0.4) inset,
+      0 40px 50px 0 rgba(15, 118, 110, 0.3) inset;
+  }
+  50% {
+    transform: rotate(270deg);
+    box-shadow:
+      0 10px 20px 0 rgba(255, 255, 255, 0.9) inset,
+      0 20px 10px 0 rgba(13, 148, 136, 0.4) inset,
+      0 30px 45px 0 rgba(14, 165, 233, 0.3) inset;
+  }
+  100% {
+    transform: rotate(450deg);
+    box-shadow:
+      0 10px 20px 0 rgba(255, 255, 255, 0.9) inset,
+      0 20px 30px 0 rgba(14, 165, 233, 0.4) inset,
+      0 40px 50px 0 rgba(15, 118, 110, 0.3) inset;
+  }
+}
+
+@keyframes loader-letter-anim {
+  0%, 100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: scale(1.15) translateY(-3px);
+  }
+  40% {
+    opacity: 0.6;
+    transform: translateY(0);
+  }
+}
+
+.loader-uiverse-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 140px;
+  height: 140px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--color-primary);
+  border-radius: 50%;
+  background-color: transparent;
+  user-select: none;
+}
+
+.loader-uiverse-ring {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: transparent;
+  animation: loader-rotate 2s linear infinite;
+  z-index: 0;
+  border: 1px solid rgba(15, 118, 110, 0.05);
+}
+
+.loader-uiverse-letter {
+  display: inline-block;
+  opacity: 0.35;
+  animation: loader-letter-anim 2s infinite;
+  z-index: 1;
+}
+
+/* Tab button hover overlay styling */
+.tab-button-hover {
+  border-radius: 0.5rem 0.5rem 0 0;
+}
+.tab-button-hover:hover {
+  background-color: var(--color-primary-light) !important;
+}
+
+/* Day button track hover styling */
+.day-button-hover:hover {
+  background-color: #F1F8F6 !important;
+}
+
+/* Outline button hover states */
+.btn-outline-hover:hover {
+  background-color: var(--color-primary-light) !important;
+  border-color: var(--color-primary) !important;
+  color: var(--color-primary) !important;
+}
+
+/* Uiverse adapted login button */
+.uiverse-login-btn {
+  width: 100%;
+  padding: 0.85rem;
+  border: none;
+  font-size: 17px;
+  color: #ffffff !important;
+  border-radius: 0.85rem;
+  letter-spacing: 4px;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: 0.5s;
+  transition-property: box-shadow, background-color;
+  background-color: var(--color-primary);
+  box-shadow: 0 0 12px rgba(15, 118, 110, 0.25);
+  cursor: pointer;
+  outline: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.uiverse-login-btn:hover:not(:disabled) {
+  background-color: var(--color-primary-hover, #0B5F59);
+  box-shadow: 0 0 8px rgba(15, 118, 110, 0.25),
+              0 0 18px rgba(15, 118, 110, 0.20);
+}
+
+.uiverse-login-btn:focus-visible {
+  box-shadow: 0 0 0 3px rgba(15, 118, 110, 0.4),
+              0 0 18px rgba(15, 118, 110, 0.20);
+}
+
+.uiverse-login-btn:disabled {
+  background-color: var(--color-surface-lighter);
+  color: var(--color-text-muted) !important;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+/* Sidebar navigation mode classes */
+.sidebar-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  color: var(--color-text-muted);
+  background: transparent;
+  border: 1px solid transparent;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: all 0.2s;
+}
+
+.sidebar-nav-link:hover {
+  color: var(--color-text);
+  background-color: var(--color-primary-light);
+  opacity: 0.9;
+}
+
+.sidebar-nav-link.active {
+  color: var(--color-primary);
+  background: var(--color-primary-light);
+  border: 1px solid var(--color-border-light);
+  font-weight: 600;
+}
+
+.sidebar-logout-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(239, 68, 68, 0.15);
+  background-color: rgba(239, 68, 68, 0.05);
+  color: var(--color-error);
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.95rem;
+  width: 100%;
+  transition: all 0.2s;
+}
+
+.sidebar-logout-btn:hover {
+  background-color: rgba(239, 68, 68, 0.1);
+}
+
+/* Animated Uiverse Sun/Moon Theme Toggle Switch */
+.theme-toggle-wrapper #theme-toggle-button {
+  font-size: 8px; /* Compact scale for navbar */
+  position: relative;
+  display: inline-block;
+  width: 7em;
+  cursor: pointer;
+  transform: translateY(2px);
+}
+
+.theme-toggle-wrapper input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.theme-toggle-wrapper #container,
+.theme-toggle-wrapper #patches,
+.theme-toggle-wrapper #stars,
+.theme-toggle-wrapper #button,
+.theme-toggle-wrapper #sun,
+.theme-toggle-wrapper #moon,
+.theme-toggle-wrapper #cloud {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 0.25s;
+}
+
+.theme-toggle-wrapper input[type="checkbox"]:checked + svg #container {
+  fill: #2b4360;
+}
+
+.theme-toggle-wrapper input[type="checkbox"]:checked + svg #button {
+  transform: translate(28px, 2.333px);
+}
+
+.theme-toggle-wrapper #sun {
+  opacity: 1;
+}
+
+.theme-toggle-wrapper input[type="checkbox"]:checked + svg #sun {
+  opacity: 0;
+}
+
+.theme-toggle-wrapper #moon {
+  opacity: 0;
+}
+
+.theme-toggle-wrapper input[type="checkbox"]:checked + svg #moon {
+  opacity: 1;
+}
+
+.theme-toggle-wrapper #cloud {
+  opacity: 1;
+}
+
+.theme-toggle-wrapper input[type="checkbox"]:checked + svg #cloud {
+  opacity: 0;
+}
+
+.theme-toggle-wrapper #stars {
+  opacity: 0;
+}
+
+.theme-toggle-wrapper input[type="checkbox"]:checked + svg #stars {
+  opacity: 1;
+}
+
+
