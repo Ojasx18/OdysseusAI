@@ -86,15 +86,6 @@ Designed with a sleek user experience, OdysseusAI features a responsive dashboar
 
 
 
-
-| Home / Landing Page | User Dashboard |
-|---|---|
-| ![Home Page](<!-- Add path to homepage screenshot -->) | ![Dashboard Page](<!-- Add path to dashboard screenshot -->) |
-
-| AI Itinerary Detail | Interactive Map & Route |
-|---|---|
-| ![Itinerary Planning](<!-- Add path to itinerary detail screenshot -->) | ![Map Routing](<!-- Add path to map routing screenshot -->) |
-
 ---
 
 ## 📂 Project Structure
