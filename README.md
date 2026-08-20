@@ -73,6 +73,19 @@ Designed with a sleek user experience, OdysseusAI features a responsive dashboar
 ## 📸 Screenshots
 
 <!-- Add project screenshots here -->
+<img width="1890" height="1038" alt="Screenshot 2026-08-20 165605" src="https://github.com/user-attachments/assets/0bcdc98a-fcea-4b08-8ce3-0073ef9545ed" />
+<img width="1892" height="1034" alt="Screenshot 2026-08-20 165617" src="https://github.com/user-attachments/assets/c21a3b06-00e9-4ba0-a8c5-31ecce1ff4c9" />
+<img width="1894" height="1033" alt="Screenshot 2026-08-20 165723" src="https://github.com/user-attachments/assets/e974dce7-11a9-4702-a8c6-72883c234cc6" />
+<img width="1891" height="1036" alt="Screenshot 2026-08-20 165747" src="https://github.com/user-attachments/assets/b9398aef-8db1-4994-8b4d-ed1fdb2f7687" />
+<img width="1046" height="1007" alt="Screenshot 2026-08-20 180523" src="https://github.com/user-attachments/assets/0c3f4630-473e-457b-8707-eb9a944cbce1" />
+<img width="889" height="804" alt="Screenshot 2026-08-20 180642" src="https://github.com/user-attachments/assets/d9069a2d-605f-4345-b4e0-bc7c01f19f61" />
+<img width="921" height="634" alt="Screenshot 2026-08-20 180711" src="https://github.com/user-attachments/assets/cf1fec13-7ba5-4fda-9ed2-cb3195a6b430" />
+
+
+
+
+
+
 
 | Home / Landing Page | User Dashboard |
 |---|---|
